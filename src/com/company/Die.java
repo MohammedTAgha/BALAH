@@ -1,10 +1,13 @@
 package com.company;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-public class Dice {
-    public static Random generator;
 
+public class Die {
+    public static Random generator;
+    public static int throughDice () {
+    generator = new Random();
+    return 1 + generator.nextInt(6);
+    }
     public static boolean through2Dice () {
         int d1 = throughDice();
         int d2 = throughDice();
@@ -15,11 +18,6 @@ public class Dice {
         }else {
             return false;
         }
+        
     }
-    public static int throughDice () {
-        int dice = ThreadLocalRandom.current().nextInt(1, 6 + 1);
-        generator = new Random();
-        return 1 + generator.nextInt(6);
-    }
-
 }
